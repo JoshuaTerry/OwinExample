@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Simple Bearer Token Example</h1>
+
+    <p>
+        Run the project and open PostMan.
+        <ol>
+            <li>Set your action to Post</li>
+            <li>Set the url to:  http://[VS Express Localhost URL]/api/v1/Login</li>
+            <li>Under Headers add Key: Content-Type with the Value: application/x-www-form-urlencoded </li>
+            <li>Under Authorization set Type to No Auth</li>
+            <li>Under Body add the values in the picture below</li>
+        </ol>
+    </p>
+    <img src="AuthCall.JPG" />
+
+    <p>When you send you should get back the response listed above.  Copy the access_token returned here.  
+    Now in order to test the authorization do the following:
+
+        <ol>
+            <li>Set the Action to Get</li>
+            <li>Set the url to:  http://[VS Express Localhost URL]/api/v1/TestAdmin</li>
+            <li>Under Headers add the following keys listed in the image below.  </li>
+        </ol>
+    </p>
+    <img src="call1.JPG" /><br />
+     <img src="call2.JPG" />
+
+     <p>
+         The user has the "Admin" and "General" role but does not have the "Exclusive" role. <br />
+         If you call TestAdmin, you should see the message listed above "You are Admin". <br />
+         If you call TestExclusive you will instead receive:     "Message": "Authorization has been denied for this request."
+     </p>
+
+
+</body>
+</html>
